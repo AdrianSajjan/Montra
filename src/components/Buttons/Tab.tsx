@@ -1,16 +1,16 @@
 import * as React from "react";
 import colors from "@theme/colors";
-import { CloseIcon } from "@components/Icons";
+import Svg, { Path } from "react-native-svg";
+import { CloseIcon, CurrencyExchangeIcon, ExpenseIcon, IncomeIcon } from "@components/Icons";
 import { Pressable, StyleSheet, View } from "react-native";
 import { BottomTabBarButtonProps } from "@react-navigation/bottom-tabs";
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
-import Svg, { Path } from "react-native-svg";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
   container: {
     width: 80,
     alignItems: "center",
-    position: "relative",
   },
   button: {
     top: -6,
@@ -61,6 +61,15 @@ export default function TabBarButton(props: BottomTabBarButtonProps) {
           <CloseIcon size={32} fill={colors["light-100"]} />
         </Animated.View>
       </Pressable>
+      <TouchableOpacity containerStyle={{ position: "absolute", top: -130, zIndex: 100 }}>
+        <CurrencyExchangeIcon fill="black" size={36} />
+      </TouchableOpacity>
+      <TouchableOpacity containerStyle={{ position: "absolute", top: -75, left: -50 }}>
+        <IncomeIcon fill="black" size={36} />
+      </TouchableOpacity>
+      <TouchableOpacity containerStyle={{ position: "absolute", top: -75, left: 95 }}>
+        <ExpenseIcon fill="black" size={36} />
+      </TouchableOpacity>
     </View>
   );
 }

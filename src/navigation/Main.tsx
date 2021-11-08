@@ -1,12 +1,11 @@
 import * as React from "react";
 import colors from "@theme/colors";
+import { View } from "react-native";
 import { HomeScreen } from "@screens/Home";
+import { TabButton } from "@components/Buttons";
 import { createStackNavigator } from "@react-navigation/stack";
 import { HomeIcon, PieChartIcon, TransactionIcon, UserIcon } from "@components/Icons";
 import { BottomTabNavigationOptions, createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Pressable, View } from "react-native";
-import { TabButton } from "@components/Buttons";
-import { TabBar } from "@components/Layout";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -57,7 +56,7 @@ const TabScreens = () => {
   };
 
   return (
-    <Tab.Navigator screenOptions={screenOptions} tabBar={TabBar}>
+    <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen name="Home" component={HomeScreen} options={homeOptions} />
       <Tab.Screen name="Transaction" component={HomeScreen} options={transactionOptions} />
       <Tab.Screen name="Add" component={View} options={addOptions} />
