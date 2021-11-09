@@ -4,6 +4,7 @@ import colors from "@theme/colors";
 import { ArrowLeftIcon } from "@components/Icons";
 import { Typography } from "@components/Typography";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/core";
 
 interface Props {
   action?: any;
@@ -19,8 +20,10 @@ interface BackProps {
 }
 
 const BackIcon = ({ back, color }: BackProps) => {
+  const navigation = useNavigation();
+
   return back ? (
-    <TouchableOpacity activeOpacity={0.6}>
+    <TouchableOpacity activeOpacity={0.6} onPress={navigation.goBack}>
       <ArrowLeftIcon size={28} fill={colors[color]} />
     </TouchableOpacity>
   ) : (

@@ -6,7 +6,12 @@ import { TextField } from "@components/Form";
 import { PrimaryButton } from "@components/Buttons";
 import { Typography } from "@components/Typography";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/core";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { AuthStackParamList } from "@navigation/types";
+
+type ForgotPasswordNavigationProp = StackNavigationProp<AuthStackParamList, "Forgot-Password">;
 
 const styles = StyleSheet.create({
   container: {
@@ -23,7 +28,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function RegisterScreen() {
+export default function ForgotPasswordScreen() {
+  const navigation = useNavigation<ForgotPasswordNavigationProp>();
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
@@ -36,7 +43,7 @@ export default function RegisterScreen() {
           <TextField placeholder="Email" style={styles.field} />
         </Box>
         <Box marginTop={32}>
-          <PrimaryButton title="Continue" />
+          <PrimaryButton title="Continue" onPress={() => navigation.navigate("Password-Reset-Email")} />
         </Box>
       </ScrollView>
     </SafeAreaView>

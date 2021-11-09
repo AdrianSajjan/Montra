@@ -3,12 +3,40 @@ import colors from "@theme/colors";
 import { View } from "react-native";
 import { HomeScreen } from "@screens/Home";
 import { TabButton } from "@components/Buttons";
-import { createStackNavigator } from "@react-navigation/stack";
+import { OnboardScreen } from "@screens/Onboard";
+import { createStackNavigator, StackNavigationOptions } from "@react-navigation/stack";
 import { HomeIcon, PieChartIcon, TransactionIcon, UserIcon } from "@components/Icons";
 import { BottomTabNavigationOptions, createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import {
+  ForgotPasswordScreen,
+  LoginScreen,
+  RegisterScreen,
+  ResetEmailSentScreen,
+  ResetPasswordScreen,
+  VerifyScreen,
+} from "@screens/Authentication";
+import { AuthStackParamList } from "./types";
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<AuthStackParamList>();
 const Tab = createBottomTabNavigator();
+
+const AuthScreens = () => {
+  const screenOptions: StackNavigationOptions = {
+    headerShown: false,
+  };
+
+  return (
+    <Stack.Navigator screenOptions={screenOptions}>
+      <Stack.Screen name="Onboard" component={OnboardScreen} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="Verify" component={VerifyScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Forgot-Password" component={ForgotPasswordScreen} />
+      <Stack.Screen name="Password-Reset-Email" component={ResetEmailSentScreen} />
+      <Stack.Screen name="Reset-Password" component={ResetPasswordScreen} />
+    </Stack.Navigator>
+  );
+};
 
 const TabScreens = () => {
   const screenOptions: BottomTabNavigationOptions = {
@@ -67,5 +95,5 @@ const TabScreens = () => {
 };
 
 export default function Main() {
-  return <TabScreens />;
+  return <AuthScreens />;
 }

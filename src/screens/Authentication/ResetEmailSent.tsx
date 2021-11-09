@@ -6,7 +6,12 @@ import { TextField } from "@components/Form";
 import { PrimaryButton } from "@components/Buttons";
 import { Typography } from "@components/Typography";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Image, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
+import { Image, ScrollView, StyleSheet } from "react-native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { AuthStackParamList } from "@navigation/types";
+import { useNavigation } from "@react-navigation/core";
+
+type ResetEmailNavigationProp = StackNavigationProp<AuthStackParamList, "Password-Reset-Email">;
 
 const styles = StyleSheet.create({
   container: {
@@ -25,6 +30,8 @@ const styles = StyleSheet.create({
 });
 
 export default function ResetEmailSentScreen() {
+  const navigation = useNavigation<ResetEmailNavigationProp>();
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
@@ -39,7 +46,7 @@ export default function ResetEmailSentScreen() {
           </Typography>
         </Box>
         <Box marginTop={32}>
-          <PrimaryButton title="Back to Login" />
+          <PrimaryButton title="Back to Login" onPress={() => navigation.navigate("Login")} />
         </Box>
       </ScrollView>
     </SafeAreaView>

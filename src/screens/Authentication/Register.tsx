@@ -1,13 +1,18 @@
 import * as React from "react";
 import colors from "@theme/colors";
 import { Box } from "@components/Layout";
-import { ArrowLeftIcon, FacebookIcon, GoogleIcon } from "@components/Icons";
-import { OutlinedButton, PrimaryButton, SecondaryButton } from "@components/Buttons";
+import { FacebookIcon, GoogleIcon } from "@components/Icons";
+import { OutlinedButton, PrimaryButton } from "@components/Buttons";
 import { Typography } from "@components/Typography";
 import { TextField, CheckBox } from "@components/Form";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
 import { Header } from "@components/Layout";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { AuthStackParamList } from "@navigation/types";
+import { useNavigation } from "@react-navigation/core";
+
+type RegisterNavigationProp = StackNavigationProp<AuthStackParamList, "Register">;
 
 const styles = StyleSheet.create({
   container: {
@@ -28,6 +33,8 @@ const styles = StyleSheet.create({
 });
 
 export default function RegisterScreen() {
+  const navigation = useNavigation<RegisterNavigationProp>();
+
   const [checked, setChecked] = React.useState(false);
 
   return (
@@ -48,7 +55,7 @@ export default function RegisterScreen() {
           </CheckBox>
         </Box>
         <Box marginTop={24}>
-          <PrimaryButton title="Sign Up" />
+          <PrimaryButton title="Sign Up" onPress={() => navigation.navigate("Verify")} />
           <Box marginVertical={8} />
           <Typography variant="small" color="dark-25" textAlign="center">
             Or With
@@ -63,7 +70,7 @@ export default function RegisterScreen() {
             Already have and account?
           </Typography>
           <Box marginHorizontal={2} />
-          <TouchableOpacity activeOpacity={0.6}>
+          <TouchableOpacity activeOpacity={0.6} onPress={() => navigation.navigate("Login")}>
             <Typography color="violet-100" style={styles.underline}>
               Login
             </Typography>

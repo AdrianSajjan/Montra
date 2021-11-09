@@ -7,6 +7,11 @@ import { PrimaryButton } from "@components/Buttons";
 import { Typography } from "@components/Typography";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/core";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { AuthStackParamList } from "@navigation/types";
+
+type LoginNavigationProp = StackNavigationProp<AuthStackParamList, "Login">;
 
 const styles = StyleSheet.create({
   container: {
@@ -26,7 +31,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function RegisterScreen() {
+export default function LoginScreen() {
+  const navigation = useNavigation<LoginNavigationProp>();
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
@@ -38,7 +45,7 @@ export default function RegisterScreen() {
         <Box marginTop={42}>
           <PrimaryButton title="Login" />
           <Box marginVertical={16} />
-          <TouchableOpacity activeOpacity={0.6}>
+          <TouchableOpacity activeOpacity={0.6} onPress={() => navigation.navigate("Forgot-Password")}>
             <Typography variant="title-3" color="violet-100" textAlign="center">
               Forgot Password?
             </Typography>
@@ -49,7 +56,7 @@ export default function RegisterScreen() {
             Don't have and account?
           </Typography>
           <Box marginHorizontal={2} />
-          <TouchableOpacity activeOpacity={0.6}>
+          <TouchableOpacity activeOpacity={0.6} onPress={() => navigation.navigate("Register")}>
             <Typography color="violet-100" style={styles.underline}>
               Sign Up
             </Typography>

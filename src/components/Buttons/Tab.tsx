@@ -100,13 +100,13 @@ export default function TabBarButton(props: BottomTabBarButtonProps) {
 
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.floating, floatingStyle]}>
+      <Animated.View style={[styles.floating, floatingStyle]} pointerEvents="box-none">
         <FloatingButton icon={CurrencyExchangeIcon} color={colors["blue-100"]} iconSize={30} />
         <Box flexDirection="row" width={180} justifyContent="space-between">
           <FloatingButton icon={IncomeIcon} color={colors["green-100"]} iconSize={30} />
           <FloatingButton icon={ExpenseIcon} color={colors["red-100"]} iconSize={30} />
         </Box>
-        <Box width={50} height={50} />
+        <Box width={55} height={55} />
       </Animated.View>
       <Background />
       <RectButton {...props} style={styles.button} onPress={handlePress}>

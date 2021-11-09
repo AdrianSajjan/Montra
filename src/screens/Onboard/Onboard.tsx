@@ -14,8 +14,13 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
 } from "react-native-reanimated";
+import { useNavigation } from "@react-navigation/core";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { AuthStackParamList } from "@navigation/types";
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
+
+type OnboardNavigationProp = StackNavigationProp<AuthStackParamList, "Onboard">;
 
 interface DotProps {
   index: number;
@@ -68,6 +73,7 @@ const Dots = ({ index, scrollX }: DotProps) => {
 };
 
 export default function OnboardScreen() {
+  const navigation = useNavigation<OnboardNavigationProp>();
   const { width } = useWindowDimensions();
 
   const scrollX = useSharedValue(0);
@@ -114,9 +120,9 @@ export default function OnboardScreen() {
             </Box>
           </Box>
           <Box paddingHorizontal={24}>
-            <PrimaryButton title="Sign Up" />
+            <PrimaryButton title="Sign Up" onPress={() => navigation.navigate("Register")} />
             <Box marginVertical={12} />
-            <SecondaryButton title="Login" />
+            <SecondaryButton title="Login" onPress={() => navigation.navigate("Login")} />
           </Box>
         </Box>
       </ScrollView>
