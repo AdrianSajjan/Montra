@@ -1,11 +1,21 @@
 import * as React from "react";
 import colors from "@theme/colors";
+import { Box } from "@components/Layout";
 import Svg, { Path } from "react-native-svg";
-import { CloseIcon, CurrencyExchangeIcon, ExpenseIcon, IncomeIcon } from "@components/Icons";
-import { Pressable, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { IconProp } from "@components/Icons/types";
+import { RectButton } from "react-native-gesture-handler";
 import { BottomTabBarButtonProps } from "@react-navigation/bottom-tabs";
-import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { CloseIcon, CurrencyExchangeIcon, ExpenseIcon, IncomeIcon } from "@components/Icons";
+import Animated, { interpolate, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
+
+interface FloatingButtonProps {
+  color?: string;
+  onPress?: Function;
+  iconColor?: string;
+  iconSize?: number;
+  icon: React.ComponentType<IconProp>;
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -22,6 +32,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: colors["violet-100"],
   },
+  floating: {
+    width: 180,
+    bottom: 25,
+    height: 180,
+    position: "absolute",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  floatingButton: {
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
 
 const Background = () => {
@@ -35,17 +60,30 @@ const Background = () => {
   );
 };
 
+const FloatingButton: React.FC<FloatingButtonProps> = ({ color, icon: Icon, iconColor = "#FFFFFF", iconSize, onPress }) => {
+  return (
+    <RectButton style={[styles.floatingButton, { backgroundColor: color }]} onPress={() => onPress?.()}>
+      <Icon fill={iconColor} size={iconSize} />
+    </RectButton>
+  );
+};
+
 export default function TabBarButton(props: BottomTabBarButtonProps) {
   const rotate = useSharedValue(45);
+  const opacity = useSharedValue(0);
   const [open, setOpen] = React.useState(false);
 
-  React.useEffect(() => {
+  const handlePress = () => {
     if (open) {
+      setOpen(false);
       rotate.value = withTiming(0);
+      opacity.value = withTiming(1);
     } else {
+      setOpen(true);
       rotate.value = withTiming(45);
+      opacity.value = withTiming(0);
     }
-  }, [open]);
+  };
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
@@ -53,23 +91,29 @@ export default function TabBarButton(props: BottomTabBarButtonProps) {
     };
   });
 
+  const floatingStyle = useAnimatedStyle(() => {
+    return {
+      opacity: opacity.value,
+      transform: [{ translateY: interpolate(opacity.value, [0, 1], [10, 0]) }],
+    };
+  });
+
   return (
     <View style={styles.container}>
+      <Animated.View style={[styles.floating, floatingStyle]}>
+        <FloatingButton icon={CurrencyExchangeIcon} color={colors["blue-100"]} iconSize={30} />
+        <Box flexDirection="row" width={180} justifyContent="space-between">
+          <FloatingButton icon={IncomeIcon} color={colors["green-100"]} iconSize={30} />
+          <FloatingButton icon={ExpenseIcon} color={colors["red-100"]} iconSize={30} />
+        </Box>
+        <Box width={50} height={50} />
+      </Animated.View>
       <Background />
-      <Pressable {...props} style={styles.button} onPress={() => setOpen(!open)}>
+      <RectButton {...props} style={styles.button} onPress={handlePress}>
         <Animated.View style={animatedStyle}>
-          <CloseIcon size={32} fill={colors["light-100"]} />
+          <CloseIcon size={32} fill="#FFFFFF" />
         </Animated.View>
-      </Pressable>
-      <TouchableOpacity containerStyle={{ position: "absolute", top: -130, zIndex: 100 }}>
-        <CurrencyExchangeIcon fill="black" size={36} />
-      </TouchableOpacity>
-      <TouchableOpacity containerStyle={{ position: "absolute", top: -75, left: -50 }}>
-        <IncomeIcon fill="black" size={36} />
-      </TouchableOpacity>
-      <TouchableOpacity containerStyle={{ position: "absolute", top: -75, left: 95 }}>
-        <ExpenseIcon fill="black" size={36} />
-      </TouchableOpacity>
+      </RectButton>
     </View>
   );
 }
