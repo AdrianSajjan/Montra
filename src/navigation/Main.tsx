@@ -4,6 +4,7 @@ import { View } from "react-native";
 import { HomeScreen } from "@screens/Home";
 import { TabButton } from "@components/Buttons";
 import { OnboardScreen } from "@screens/Onboard";
+import type { AuthStackParamList, HomeTabsParamList, MainStackParamList } from "./types";
 import { createStackNavigator, StackNavigationOptions } from "@react-navigation/stack";
 import { HomeIcon, PieChartIcon, TransactionIcon, UserIcon } from "@components/Icons";
 import { BottomTabNavigationOptions, createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -15,26 +16,38 @@ import {
   ResetPasswordScreen,
   VerifyScreen,
 } from "@screens/Authentication";
-import { AuthStackParamList } from "./types";
 
-const Stack = createStackNavigator<AuthStackParamList>();
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<HomeTabsParamList>();
+const AppStack = createStackNavigator<MainStackParamList>();
+const AuthStack = createStackNavigator<AuthStackParamList>();
 
-const AuthScreens = () => {
+const AuthStackScreens = () => {
   const screenOptions: StackNavigationOptions = {
     headerShown: false,
   };
 
   return (
-    <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen name="Onboard" component={OnboardScreen} />
-      <Stack.Screen name="Register" component={RegisterScreen} />
-      <Stack.Screen name="Verify" component={VerifyScreen} />
-      <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Forgot-Password" component={ForgotPasswordScreen} />
-      <Stack.Screen name="Password-Reset-Email" component={ResetEmailSentScreen} />
-      <Stack.Screen name="Reset-Password" component={ResetPasswordScreen} />
-    </Stack.Navigator>
+    <AuthStack.Navigator screenOptions={screenOptions}>
+      <AuthStack.Screen name="Onboard" component={OnboardScreen} />
+      <AuthStack.Screen name="Register" component={RegisterScreen} />
+      <AuthStack.Screen name="Verify" component={VerifyScreen} />
+      <AuthStack.Screen name="Login" component={LoginScreen} />
+      <AuthStack.Screen name="Forgot-Password" component={ForgotPasswordScreen} />
+      <AuthStack.Screen name="Password-Reset-Email" component={ResetEmailSentScreen} />
+      <AuthStack.Screen name="Reset-Password" component={ResetPasswordScreen} />
+    </AuthStack.Navigator>
+  );
+};
+
+const AppStackScreens = () => {
+  const screenOptions: StackNavigationOptions = {
+    headerShown: false,
+  };
+
+  return (
+    <AppStack.Navigator screenOptions={screenOptions}>
+      <AppStack.Screen name="Main" component={TabScreens} />
+    </AppStack.Navigator>
   );
 };
 
@@ -95,5 +108,5 @@ const TabScreens = () => {
 };
 
 export default function Main() {
-  return <AuthScreens />;
+  return <AppStackScreens />;
 }

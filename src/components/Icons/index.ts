@@ -12,4 +12,5 @@ export { default as ArrowLeftIcon } from "./ArrowLeft";
 export { default as ArrowDownIcon } from "./ArrowDown";
 export { default as ArrowRightIcon } from "./ArrowRight";
 export { default as TransactionIcon } from "./Transaction";
+export { default as NotificationIcon } from "./Notification";
 export { default as CurrencyExchangeIcon } from "./CurrencyExchange";

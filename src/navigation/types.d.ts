@@ -11,3 +11,15 @@ export type AuthStackParamList = {
   "Password-Reset-Email": undefined;
   "Reset-Password": undefined;
 };
+
+export type MainStackParamList = {
+  Main: SubNavigator<HomeTabsParamList>;
+};
+
+export type HomeTabsParamList = {
+  Add: undefined;
+  Home: undefined;
+  Budget: undefined;
+  Profile: undefined;
+  Transaction: undefined;
+};
