@@ -3,7 +3,7 @@ import colors from "@theme/colors";
 import { Box } from "@components/Layout";
 import Svg, { Path } from "react-native-svg";
 import { StyleSheet, View } from "react-native";
-import { IconProp } from "@components/Icons/types";
+import { IconProp } from "@components/Icons/icon";
 import { RectButton } from "react-native-gesture-handler";
 import { BottomTabBarButtonProps } from "@react-navigation/bottom-tabs";
 import { CloseIcon, CurrencyExchangeIcon, ExpenseIcon, IncomeIcon } from "@components/Icons";

@@ -8,7 +8,7 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "types/*": ["src/types/*"],
+      "@interfaces/*": ["src/interfaces/*"],
       "@utils/*": ["src/utils/*"],
       "@hooks/*": ["src/hooks/*"],
       "@theme/*": ["src/theme/*"],
@@ -27,10 +27,5 @@
     "strict": true,
     "target": "esnext"
   },
-  "exclude": [
-    "node_modules",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js"
-  ]
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
 }

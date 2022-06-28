@@ -16,7 +16,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { useNavigation } from "@react-navigation/core";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { AuthStackParamList } from "@navigation/types";
+import { AuthStackParamList } from "@interfaces/navigation";
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 

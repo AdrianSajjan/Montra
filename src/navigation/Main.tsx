@@ -4,10 +4,10 @@ import { View } from "react-native";
 import { HomeScreen } from "@screens/Home";
 import { TabButton } from "@components/Buttons";
 import { OnboardScreen } from "@screens/Onboard";
-import type { AuthStackParamList, HomeTabsParamList, MainStackParamList } from "./types";
 import { createStackNavigator, StackNavigationOptions } from "@react-navigation/stack";
 import { HomeIcon, PieChartIcon, TransactionIcon, UserIcon } from "@components/Icons";
 import { BottomTabNavigationOptions, createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import type { AuthStackParamList, HomeTabsParamList, MainStackParamList } from "@interfaces/navigation";
 import {
   ForgotPasswordScreen,
   LoginScreen,

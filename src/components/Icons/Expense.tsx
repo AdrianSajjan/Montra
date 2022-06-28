@@ -1,6 +1,6 @@
 import * as React from "react";
 import Svg, { Path } from "react-native-svg";
-import { IconProp } from "./types";
+import { IconProp } from "@interfaces/components";
 
 export default function ExpenseIcon({ fill, size = 32 }: IconProp) {
   return (

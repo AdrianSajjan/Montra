@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { IconProp } from "./types";
+import type { IconProp } from "@interfaces/components";
 import Svg, { Path } from "react-native-svg";
 import colors from "@theme/colors";
 

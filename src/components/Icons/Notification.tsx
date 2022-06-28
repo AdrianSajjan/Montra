@@ -1,5 +1,5 @@
 import React from "react";
-import { IconProp } from "./types";
+import { IconProp } from "@interfaces/components";
 import Svg, { Path } from "react-native-svg";
 
 export default function NotificationIcon({ fill, size }: IconProp) {

@@ -1,7 +1,7 @@
 import * as React from "react";
-import type { IconProp } from "./types";
-import Svg, { Path } from "react-native-svg";
 import colors from "@theme/colors";
+import Svg, { Path } from "react-native-svg";
+import type { IconProp } from "@interfaces/components";
 
 export default function ArrowDown({ fill = colors["dark-100"], size = 24 }: IconProp) {
   return (

@@ -1,6 +1,6 @@
 import * as React from "react";
 import colors from "@theme/colors";
-import type { IconProp } from "./types";
+import type { IconProp } from "@interfaces/components";
 import Svg, { Path } from "react-native-svg";
 
 export default function SuccessIcon({ fill = colors["dark-100"], size = 24 }: IconProp) {

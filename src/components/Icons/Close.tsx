@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IconProp } from "./types";
+import { IconProp } from "@interfaces/components";
 import Svg, { Path } from "react-native-svg";
 
 export default function CloseIcon({ fill, size = 32 }: IconProp) {
