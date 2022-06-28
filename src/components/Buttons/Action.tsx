@@ -3,11 +3,7 @@ import colors from "@theme/colors";
 import typography from "@theme/typography";
 import { StyleSheet, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-
-interface Props {
-  title?: string;
-  onPress?: () => void;
-}
+import { ButtonProps } from "@interfaces/components";
 
 const styles = StyleSheet.create({
   button: {
@@ -25,7 +21,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function ActionButton({ onPress, title }: Props) {
+export default function ActionButton({ onPress, title }: ButtonProps) {
   return (
     <TouchableOpacity onPress={onPress} containerStyle={styles.button} activeOpacity={0.6}>
       <Text style={styles.text}>{title}</Text>

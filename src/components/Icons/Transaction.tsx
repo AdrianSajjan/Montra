@@ -1,12 +1,12 @@
 import React from "react";
-import { IconProp } from "@interfaces/components";
+import { IconProps } from "@interfaces/components";
 import Svg, { Path } from "react-native-svg";
 
-interface TransactionIconProp extends IconProp {
+interface TransactionIconProps extends IconProps {
   colored?: boolean;
 }
 
-export default function TransactionIcon({ fill, size, colored }: TransactionIconProp) {
+export default function TransactionIcon({ fill, size, colored }: TransactionIconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 32 32" fill="none">
       <Path

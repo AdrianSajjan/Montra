@@ -1,8 +1,8 @@
 import React from "react";
-import { IconProp } from "@interfaces/components";
+import { IconProps } from "@interfaces/components";
 import Svg, { Path } from "react-native-svg";
 
-export default function FacebookIcon({ size = 42 }: Omit<IconProp, "fill">) {
+export default function FacebookIcon({ size = 42 }: Omit<IconProps, "fill">) {
   return (
     <Svg viewBox="0 0 48 48" width={size} height={size}>
       <Path fill="#039be5" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z" />

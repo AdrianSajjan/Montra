@@ -5,11 +5,11 @@ import { Header } from "@components/Layout";
 import { TextField } from "@components/Form";
 import { PrimaryButton } from "@components/Buttons";
 import { Typography } from "@components/Typography";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/core";
+import { AuthStackParamList } from "@interfaces/navigation";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { AuthStackParamList } from "@navigation/types";
+import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
 
 type LoginNavigationProp = StackNavigationProp<AuthStackParamList, "Login">;
 

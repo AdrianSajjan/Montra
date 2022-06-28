@@ -10,7 +10,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
-import { HomeTabsParamList, MainStackParamList } from "@navigation/types";
+import { HomeTabsParamList, MainStackParamList } from "@interfaces/navigation";
 import { CompositeNavigationProp, useNavigation } from "@react-navigation/core";
 import { Typography } from "@components/Typography";
 import { SpendFrequencyChart } from "@components/Charts";

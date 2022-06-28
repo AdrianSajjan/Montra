@@ -8,7 +8,7 @@ import { Typography } from "@components/Typography";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image, ScrollView, StyleSheet } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { AuthStackParamList } from "@navigation/types";
+import { AuthStackParamList } from "@interfaces/navigation";
 import { useNavigation } from "@react-navigation/core";
 
 type ResetEmailNavigationProp = StackNavigationProp<AuthStackParamList, "Password-Reset-Email">;

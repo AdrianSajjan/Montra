@@ -9,7 +9,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
 import { Header } from "@components/Layout";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { AuthStackParamList } from "@navigation/types";
+import { AuthStackParamList } from "@interfaces/navigation";
 import { useNavigation } from "@react-navigation/core";
 
 type RegisterNavigationProp = StackNavigationProp<AuthStackParamList, "Register">;

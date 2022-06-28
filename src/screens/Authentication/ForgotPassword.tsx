@@ -9,7 +9,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { AuthStackParamList } from "@navigation/types";
+import { AuthStackParamList } from "@interfaces/navigation";
 
 type ForgotPasswordNavigationProp = StackNavigationProp<AuthStackParamList, "Forgot-Password">;
 

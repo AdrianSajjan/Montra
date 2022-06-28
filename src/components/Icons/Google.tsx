@@ -1,8 +1,8 @@
 import * as React from "react";
-import { IconProp } from "@interfaces/components";
+import { IconProps } from "@interfaces/components";
 import Svg, { Path } from "react-native-svg";
 
-export default function GoogleIcon({ size = 36 }: Omit<IconProp, "fill">) {
+export default function GoogleIcon({ size = 36 }: Omit<IconProps, "fill">) {
   return (
     <Svg viewBox="0 0 48 48" width={size} height={size}>
       <Path

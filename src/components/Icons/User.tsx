@@ -1,8 +1,8 @@
 import React from "react";
-import { IconProp } from "@interfaces/components";
+import { IconProps } from "@interfaces/components";
 import Svg, { Path } from "react-native-svg";
 
-export default function UserIcon({ fill, size }: IconProp) {
+export default function UserIcon({ fill, size }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 32 32" fill="none">
       <Path

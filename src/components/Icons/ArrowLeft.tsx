@@ -1,9 +1,9 @@
 import * as React from "react";
-import type { IconProp } from "@interfaces/components";
+import type { IconProps } from "@interfaces/components";
 import Svg, { Path } from "react-native-svg";
 import colors from "@theme/colors";
 
-export default function ArrowLeftIcon({ fill = colors["dark-100"], size = 24 }: IconProp) {
+export default function ArrowLeftIcon({ fill = colors["dark-100"], size = 24 }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 32 32" fill="none">
       <Path

@@ -1,8 +1,8 @@
 import * as React from "react";
 import Svg, { Path } from "react-native-svg";
-import { IconProp } from "@interfaces/components";
+import { IconProps } from "@interfaces/components";
 
-export default function ExpenseIcon({ fill, size = 32 }: IconProp) {
+export default function ExpenseIcon({ fill, size = 32 }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 32 32" fill="none">
       <Path
