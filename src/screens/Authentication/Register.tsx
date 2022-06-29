@@ -54,16 +54,16 @@ export default function RegisterScreen() {
             </Typography>
           </CheckBox>
         </Box>
-        <Box marginTop={24}>
+        <Box marginTop={36}>
           <PrimaryButton title="Sign Up" onPress={() => navigation.navigate("Verify")} />
-          <Box marginVertical={8} />
+          <Box marginVertical={12} />
           <Typography variant="small" color="dark-25" textAlign="center">
             Or With
           </Typography>
+          <Box marginVertical={12} />
+          <OutlinedButton title="Sign Up with Google" icon={GoogleIcon} />
           <Box marginVertical={8} />
-          <OutlinedButton title="Sign Up with Google" icon={<GoogleIcon />} />
-          <Box marginVertical={8} />
-          <OutlinedButton title="Sign Up with Facebook" icon={<FacebookIcon />} />
+          <OutlinedButton title="Sign Up with Facebook" icon={FacebookIcon} />
         </Box>
         <Box flexDirection="row" marginTop={24} alignItems="center" justifyContent="center">
           <Typography variant="regular-1" color="dark-25">

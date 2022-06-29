@@ -21,7 +21,7 @@ const Tab = createBottomTabNavigator<HomeTabsParamList>();
 const AppStack = createStackNavigator<MainStackParamList>();
 const AuthStack = createStackNavigator<AuthStackParamList>();
 
-const AuthStackScreens = () => {
+const AuthScreens = () => {
   const screenOptions: StackNavigationOptions = {
     headerShown: false,
   };
@@ -46,7 +46,7 @@ const AppStackScreens = () => {
 
   return (
     <AppStack.Navigator screenOptions={screenOptions}>
-      <AppStack.Screen name="Main" component={TabScreens} />
+      <AppStack.Screen name="Main" component={AuthScreens} />
     </AppStack.Navigator>
   );
 };
